@@ -1,38 +1,250 @@
-.App {
+:root {
+  --gray: hsl(197, 10%, 45%);
+  --middle-gray: hsl(240, 6%, 92%);
+  --light-gray: hsl(240, 6%, 97%);
+  --accent: hsl(197, 100%, 44%);
+  --accent-hover: hsl(197, 100%, 40%);
+  --accent-active: hsl(197, 100%, 35%);
+  --focus-shadow: 0px 0px 2px var(--accent);
+  --focus-border: solid 1px var(--accent);
+  --focus-border-inactive: solid 1px transparent;
+  --max-width: 1000px;
+  --transparent-white: hsla(0, 100%, 100%, 1);
+  --red: rgb(249, 73, 73);
+  --green: hsl(170, 90%, 44%);
+}
+
+body {
+  color: var(--gray);
+}
+
+[data-reach-dialog-overlay] {
+  background: none;
+}
+
+[data-reach-dialog-content] {
+  box-shadow: 1px 1px 30px hsla(0, 0%, 0%, 0.15);
+  border: solid 2px hsla(240, 6%, 70%);
+  border-radius: 0.8rem;
+  width: 800px;
+  padding: 2.5rem;
+}
+
+/* button { */
+/*   border: none; */
+/*   margin: 0; */
+/*   padding: 0; */
+/*   background: none; */
+/*   color: inherit; */
+/*   font: inherit; */
+/*   cursor: pointer; */
+/*   -webkit-appearance: none; */
+/*   -moz-appearance: none; */
+/* } */
+
+.icon_button {
+  border: none;
+  margin: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 125%;
+  display: flex;
+  align-items: center;
+  color: var(--gray);
+  border-radius: 50%;
+  border: var(--focus-border-inactive);
+  padding: 0.5rem;
+  border-radius: 9999px;
+}
+
+.icon_button:hover {
+  background: var(--light-gray);
+}
+
+.icon_button:focus {
+  outline: none;
+  border: var(--focus-border);
+  box-shadow: var(--focus-shadow);
+}
+
+.icon_button:active {
+  color: var(--accent);
+  background: var(--middle-gray);
+}
+
+.icon_button > * + * {
+  margin-left: 0.25rem;
+}
+
+.Layout {
+  min-height: 100vh;
+  background-color: #edf4f7;
+  background-position: 10vw 0, 25vw -10vw, 50vw -10vw;
+  background-size: 110vw, 110vw, 140vw;
+  background-repeat: no-repeat;
+}
+
+.LoggedOut {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.LoggedOut input[type="text"],
+.LoggedOut input[type="email"],
+.LoggedOut input[type="password"] {
+  display: block;
+  font-size: 125%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.LoggedOut [data-reach-tabs] {
+  margin: 0 2rem;
+  align-self: center;
+  width: 300px;
+  background: #fff;
+  border-radius: 0.8rem;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.LoggedOut [data-reach-tab-list] {
+  background: #f6f6f7;
+}
+
+.LoggedOut [data-reach-tab] {
+  padding: 1rem 1.5rem;
+  border: none;
+  flex: 1;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.LoggedOut [data-reach-tab][aria-selected="true"],
+.LoggedOut [data-reach-tab].active {
+  color: var(--accent);
+  background: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.LoggedOut [data-reach-tab].disabled {
+  opacity: 0.25;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.LoggedOut [data-reach-tab-panels] {
+  padding: 1.5rem;
+}
+
+.TabsButton {
+  margin-top: 1rem;
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.LoggedOut {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.about {
+  margin: 0 2rem;
+  width: 200px;
+}
+
+.button {
+  background: rgb(249, 73, 73);
+  color: white;
+  font: inherit;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.8rem;
+  display: block;
+  width: 100%;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.15);
+  margin: 1rem 0;
+}
+
+.button:active {
+  box-shadow: none;
+  position: relative;
+  top: 1px;
+  right: 1px;
+}
+
+.passwordCheckbox {
+  margin: 0 0 1rem 0;
+}
+
+.TopBar {
+  background: var(--transparent-white);
+  border-bottom: solid 1px var(--middle-gray);
+  padding: 0.25rem 0.75rem;
+}
+
+.TopBar_inner {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon_button:focus:not(:focus-visible),
+.GlobalNav a:focus:not(:focus-visible),
+.Account_logout:focus:not(:focus-visible),
+.Calendar_add_post_button:focus:not(:focus-visible) {
+  box-shadow: none !important;
+  border: var(--focus-border-inactive) !important;
+}
+
+.Main {
+  max-width: var(--max-width);
+  margin: 1rem auto 0 auto;
+}
+
+.Meta {
+  padding: 2rem 0;
+  align-self: center;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.Meta_avatar {
+  box-shadow: 1px 2px 10px hsla(0, 0%, 0%, 0.25);
+  border-radius: 50%;
+  margin: 0 3rem;
+  flex: 0 0 200px;
+}
+
+.icon_button.cta {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.icon_button.cta:hover {
+  background-color: var(--accent-hover);
+}
+
+.icon_button.cta:active {
+  background-color: var(--accent-active);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.icon_button.cta:focus {
+  border-color: white;
+  box-shadow: 0px 0px 4px 1px var(--accent);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Dialog_close {
+  position: absolute;
+  top: 0.125rem;
+  right: 0.125rem;
 }

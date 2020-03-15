@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import LoggedIn from "./LoggedIn";
+import LoggedOut from "./LoggedOut";
+import { AppStateProvider } from "./app-state";
+import appReducer, { initialState } from "./appReducer";
+import useAuth from "./useAuth";
+
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { authAttempted, auth } = useAuth();
+  if (!authAttempted) return null;
+  return <div className="Layout">{auth ? <LoggedIn /> : <LoggedOut />}</div>;
 }
 
-export default App;
+export default () => (
+  <AppStateProvider reducer={appReducer} initialState={initialState}>
+    <LoggedOut />
+  </AppStateProvider>
+);
