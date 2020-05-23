@@ -14,10 +14,6 @@
   --green: hsl(170, 90%, 44%);
 }
 
-body {
-  color: var(--gray);
-}
-
 [data-reach-dialog-overlay] {
   background: none;
 }
@@ -94,9 +90,9 @@ body {
   padding-top: 100px;
 }
 
-.LoggedOut input[type="text"],
-.LoggedOut input[type="email"],
-.LoggedOut input[type="password"] {
+.LoggedOut input[type='text'],
+.LoggedOut input[type='email'],
+.LoggedOut input[type='password'] {
   display: block;
   font-size: 125%;
   margin-top: 1rem;
@@ -125,7 +121,7 @@ body {
   text-align: center;
 }
 
-.LoggedOut [data-reach-tab][aria-selected="true"],
+.LoggedOut [data-reach-tab][aria-selected='true'],
 .LoggedOut [data-reach-tab].active {
   color: var(--accent);
   background: white;
@@ -144,12 +140,6 @@ body {
   display: flex;
   width: 100%;
   justify-content: center;
-}
-
-.LoggedOut {
-  display: flex;
-  justify-content: center;
-  padding-top: 100px;
 }
 
 .about {
@@ -179,72 +169,4 @@ body {
 
 .passwordCheckbox {
   margin: 0 0 1rem 0;
-}
-
-.TopBar {
-  background: var(--transparent-white);
-  border-bottom: solid 1px var(--middle-gray);
-  padding: 0.25rem 0.75rem;
-}
-
-.TopBar_inner {
-  max-width: var(--max-width);
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.icon_button:focus:not(:focus-visible),
-.GlobalNav a:focus:not(:focus-visible),
-.Account_logout:focus:not(:focus-visible),
-.Calendar_add_post_button:focus:not(:focus-visible) {
-  box-shadow: none !important;
-  border: var(--focus-border-inactive) !important;
-}
-
-.Main {
-  max-width: var(--max-width);
-  margin: 1rem auto 0 auto;
-}
-
-.Meta {
-  padding: 2rem 0;
-  align-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Meta_avatar {
-  box-shadow: 1px 2px 10px hsla(0, 0%, 0%, 0.25);
-  border-radius: 50%;
-  margin: 0 3rem;
-  flex: 0 0 200px;
-}
-
-.icon_button.cta {
-  background-color: var(--accent);
-  color: white;
-  padding: 0.5rem 1rem;
-}
-
-.icon_button.cta:hover {
-  background-color: var(--accent-hover);
-}
-
-.icon_button.cta:active {
-  background-color: var(--accent-active);
-  color: white;
-}
-
-.icon_button.cta:focus {
-  border-color: white;
-  box-shadow: 0px 0px 4px 1px var(--accent);
-}
-
-.Dialog_close {
-  position: absolute;
-  top: 0.125rem;
-  right: 0.125rem;
 }

@@ -72,13 +72,13 @@ export const fetchVotes = limitCalls(function fetchVotes() {
     .then(getDocsFromSnapshot);
 });
 
-export async function vote(vote) {
-  return db
-    .collection("votes")
-    .add({ createdAt: Date.now(), ...vote })
-    .then(ref => ref.get())
-    .then(doc => ({ ...doc.data(), id: doc.id }));
-}
+// export async function vote(vote) {
+//   return db
+//     .collection("votes")
+//     .add({ createdAt: Date.now(), ...vote })
+//     .then(ref => ref.get())
+//     .then(doc => ({ ...doc.data(), id: doc.id }));
+// }
 
 export const getFeatures = limitCalls(function getFeatures(uid) {
   return db
@@ -113,6 +113,24 @@ export const subscribeToNewVotes = limitCalls(function subscribeToNewVotes(
 
 export function sortByCreatedAtDescending(a, b) {
   return b.createdAt - a.createdAt;
+}
+
+export async function vote(featureRef, uid) {
+  featureRef.transaction(function(feature) {
+    if (feature) {
+      if (feature.stars && feature.stars[uid]) {
+        feature.starCount--;
+        feature.stars[uid] = null;
+      } else {
+        feature.starCount++;
+        if (!feature.stars) {
+          feature.stars = {};
+        }
+        feature.stars[uid] = true;
+      }
+    }
+    return feature;
+  });
 }
 
 function getDataFromDoc(doc) {
