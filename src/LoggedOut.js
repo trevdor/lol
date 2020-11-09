@@ -4,8 +4,10 @@ import {
   differenceInDays,
   differenceInHours,
   differenceInMinutes,
+  differenceInSeconds,
   endOfDay,
   endOfHour,
+  endOfMinute,
 } from "date-fns";
 
 import { subscribeToFeatures } from "./utils";
@@ -17,9 +19,8 @@ import title from "./images/lol-title-linear-313x128.png";
 
 import css from "./LoggedOut.module.css";
 
-function timeUntil(targetDateString) {
+function timeBtwn(now, targetDateString) {
   let tU = "";
-  const now = new Date();
   const targetMoment = new Date(targetDateString);
   const days = differenceInDays(targetMoment, new Date());
   const hours = differenceInHours(endOfDay(now), now);
@@ -27,20 +28,41 @@ function timeUntil(targetDateString) {
 
   if (days) {
     tU += `${days}d `;
-  }
-
-  if (hours) {
     tU += `${hours}h `;
   }
 
-  if (minutes) {
-    tU += `${minutes}m`;
+  if (!days && hours) {
+    tU += `${hours}h `;
   }
+
+  tU += `${minutes}m`;
 
   return tU;
 }
 
 function LoggedOut() {
+  const [now, setNow] = useState(new Date());
+  const [syncedWithClock, setSyncedWithClock] = useState(false);
+
+  useEffect(() => {
+    if (!syncedWithClock) {
+      const theTimer = setTimeout(() => {
+        setNow(new Date());
+        setSyncedWithClock(true);
+      }, differenceInSeconds(endOfMinute(now), now) * 1000);
+
+      return () => clearTimeout(theTimer);
+    }
+  }, [syncedWithClock, now]);
+
+  useEffect(() => {
+    if (syncedWithClock) {
+      setNow(new Date()); // don't miss the leading tick
+      const theTimer = setInterval(() => setNow(new Date()), 1000);
+      return () => clearInterval(theTimer);
+    }
+  }, [syncedWithClock]);
+
   return (
     <div className={css.siteWrapper}>
       <img
@@ -57,7 +79,7 @@ function LoggedOut() {
           </div> */}
           <div className={css.timeUntil}>
             Lights turn on in <br />
-            {timeUntil("12/01/2020")}
+            {timeBtwn(now, "12/01/2020")}
           </div>
         </div>
         <div className={css.wreath}>
