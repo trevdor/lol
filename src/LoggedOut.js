@@ -1,9 +1,72 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Flex, Heading, Stack, Text, useTheme } from "@chakra-ui/core";
+import {
+  differenceInDays,
+  differenceInHours,
+  differenceInMinutes,
+  endOfDay,
+  endOfHour,
+} from "date-fns";
 
 import { subscribeToFeatures } from "./utils";
 
-import title from "./images/lol-title-linear-900.png";
+import timTitleImg3 from "./images/sparkleTitle_800.png";
+import pineWreath from "./images/pineWreath_389.png";
+
+import title from "./images/lol-title-linear-313x128.png";
+
+import css from "./LoggedOut.module.css";
+
+function timeUntil(targetDateString) {
+  let tU = "";
+  const now = new Date();
+  const targetMoment = new Date(targetDateString);
+  const days = differenceInDays(targetMoment, new Date());
+  const hours = differenceInHours(endOfDay(now), now);
+  const minutes = differenceInMinutes(endOfHour(now), now);
+
+  if (days) {
+    tU += `${days}d `;
+  }
+
+  if (hours) {
+    tU += `${hours}h `;
+  }
+
+  if (minutes) {
+    tU += `${minutes}m`;
+  }
+
+  return tU;
+}
+
+function LoggedOut() {
+  return (
+    <div className={css.siteWrapper}>
+      <img
+        alt="Lights on Leyden"
+        src={timTitleImg3}
+        className={css.timTitleImg3}
+      />
+      <div className={css.wreathWrapper}>
+        <div className={css.wreathText}>
+          {/* <div className={css.lightsOn}>
+            Lights turn
+            <br />
+            on in
+          </div> */}
+          <div className={css.timeUntil}>
+            Lights turn on in <br />
+            {timeUntil("12/01/2020")}
+          </div>
+        </div>
+        <div className={css.wreath}>
+          <img alt="pine wreath" src={pineWreath} className={css.wreathImg} />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Feature({ desc, title, votePct = 0 }) {
   const theme = useTheme();
@@ -30,7 +93,7 @@ function Feature({ desc, title, votePct = 0 }) {
   );
 }
 
-export default function LoggedOut() {
+function ChristmasTime() {
   const [features, setFeatures] = useState("");
 
   useEffect(() => {
@@ -61,14 +124,8 @@ export default function LoggedOut() {
       justifyContent="center"
       pt="10"
     >
-      <Flex justifyContent="center" h={["32", "56"]} mx={4} my={0}>
-        <img
-          alt="Lights on Leyden"
-          className="title"
-          src={title}
-          height="100%"
-          width="100%"
-        />
+      <Flex justifyContent="center" mx="auto" my={0}>
+        <img alt="Lights on Leyden" className="title" src={title} />
       </Flex>
       <Stack p="4">
         {features &&
@@ -90,3 +147,5 @@ export default function LoggedOut() {
     </Flex>
   );
 }
+
+export default LoggedOut;

@@ -5,10 +5,12 @@
   --accent: hsl(197, 100%, 44%);
   --accent-hover: hsl(197, 100%, 40%);
   --accent-active: hsl(197, 100%, 35%);
+  --elephant: #0f2941;
   --focus-shadow: 0px 0px 2px var(--accent);
   --focus-border: solid 1px var(--accent);
   --focus-border-inactive: solid 1px transparent;
   --max-width: 1000px;
+  --site-background: var(--elephant);
   --transparent-white: hsla(0, 100%, 100%, 1);
   --red: rgb(249, 73, 73);
   --green: hsl(170, 90%, 44%);
@@ -90,9 +92,9 @@
   padding-top: 100px;
 }
 
-.LoggedOut input[type='text'],
-.LoggedOut input[type='email'],
-.LoggedOut input[type='password'] {
+.LoggedOut input[type="text"],
+.LoggedOut input[type="email"],
+.LoggedOut input[type="password"] {
   display: block;
   font-size: 125%;
   margin-top: 1rem;
@@ -121,7 +123,7 @@
   text-align: center;
 }
 
-.LoggedOut [data-reach-tab][aria-selected='true'],
+.LoggedOut [data-reach-tab][aria-selected="true"],
 .LoggedOut [data-reach-tab].active {
   color: var(--accent);
   background: white;

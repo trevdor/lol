@@ -1,0 +1,74 @@
+@keyframes marquee {
+  0% {
+    transform: translate3d(95%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-75%, 0, 0);
+  }
+}
+
+.siteWrapper {
+  align-items: center;
+  background-color: var(--site-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wreathWrapper {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.timTitleImg3 {
+  margin-top: 2rem;
+  max-width: 803px;
+  width: 100%;
+}
+
+.wreathText {
+  position: absolute;
+  text-align: center;
+  width: 200px;
+}
+
+.lightsOn {
+  font-family: "WavingAtChristmas";
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.timeUntil {
+  animation-name: marquee;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.wreath {
+  background: radial-gradient(
+    circle at center,
+    transparent 0,
+    transparent 95px,
+    var(--site-background) 95px
+  );
+  display: flex;
+  width: 100%;
+  z-index: 1;
+}
+
+.wreathImg {
+  height: 292px;
+  margin: auto;
+  width: auto;
+}

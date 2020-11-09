@@ -1,4 +1,5 @@
-import { db, auth, mode } from "./db.real.js";
+// import { db, auth, mode } from "./db.real.js";
+import { db, auth, mode } from "./db.fake.js";
 
 // data model is:
 //
@@ -12,7 +13,7 @@ import { db, auth, mode } from "./db.real.js";
 //
 //   post = [{
 //     createdAt, // milliseconds
-//     date, // "YYYY-MM-DD"
+//     date, // "yyyy-MM-DD"
 //     minutes, // int
 //     uid,
 //     message
@@ -21,7 +22,7 @@ import { db, auth, mode } from "./db.real.js";
 
 export { auth, db, mode };
 
-export const DATE_FORMAT = "YYYY-MM-DD";
+export const DATE_FORMAT = "yyyy-MM-DD";
 
 export function login(email, password) {
   return auth().signInWithEmailAndPassword(email, password);
@@ -43,7 +44,7 @@ export const fetchDoc = limitCalls(function fetchDoc(path) {
   return db
     .doc(path)
     .get()
-    .then(doc => doc.data());
+    .then((doc) => doc.data());
 });
 
 export const subscribeToPenguins = limitCalls(function subscribeToPenguins(
@@ -51,7 +52,7 @@ export const subscribeToPenguins = limitCalls(function subscribeToPenguins(
 ) {
   let doc = db.collection("features").doc("penguins");
 
-  return doc.onSnapshot(snapshot => callback(getDataFromDoc(snapshot)));
+  return doc.onSnapshot((snapshot) => callback(getDataFromDoc(snapshot)));
 });
 
 export const subscribeToFeatures = limitCalls(function subscribeToFeatures(
@@ -59,7 +60,7 @@ export const subscribeToFeatures = limitCalls(function subscribeToFeatures(
 ) {
   let collection = db.collection("features").orderBy("title");
 
-  return collection.onSnapshot(snapshot =>
+  return collection.onSnapshot((snapshot) =>
     callback(getDocsFromSnapshot(snapshot))
   );
 });
@@ -106,7 +107,7 @@ export const subscribeToNewVotes = limitCalls(function subscribeToNewVotes(
     .collection("posts")
     .orderBy("createdAt", "desc")
     .where("createdAt", ">=", createdAtMin)
-    .onSnapshot(snapshot => {
+    .onSnapshot((snapshot) => {
       callback(getDocsFromSnapshot(snapshot));
     });
 });
@@ -116,7 +117,7 @@ export function sortByCreatedAtDescending(a, b) {
 }
 
 export async function vote(featureRef, uid) {
-  featureRef.transaction(function(feature) {
+  featureRef.transaction(function (feature) {
     if (feature) {
       if (feature.stars && feature.stars[uid]) {
         feature.starCount--;
@@ -139,7 +140,7 @@ function getDataFromDoc(doc) {
 
 function getDocsFromSnapshot(snapshot) {
   const docs = [];
-  snapshot.forEach(doc => {
+  snapshot.forEach((doc) => {
     docs.push(getDataFromDoc(doc));
   });
   return docs;

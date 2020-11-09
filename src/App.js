@@ -6,7 +6,7 @@ import appReducer, { initialState } from "./appReducer";
 
 import "./App.css";
 
-export default () => (
+const App = () => (
   <AppStateProvider reducer={appReducer} initialState={initialState}>
     <ThemeProvider>
       <ColorModeProvider>
@@ -15,3 +15,5 @@ export default () => (
     </ThemeProvider>
   </AppStateProvider>
 );
+
+export default App;
