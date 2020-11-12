@@ -67,8 +67,9 @@ function LoggedOut() {
     <div className={css.siteWrapper}>
       <img
         alt="Lights on Leyden"
-        src={timTitleImg3}
         className={css.timTitleImg3}
+        loading="lazy"
+        src={timTitleImg3}
       />
       <div className={css.wreathWrapper}>
         <div className={css.wreathText}>
@@ -83,7 +84,12 @@ function LoggedOut() {
           </div>
         </div>
         <div className={css.wreath}>
-          <img alt="pine wreath" src={pineWreath} className={css.wreathImg} />
+          <img
+            alt="pine wreath"
+            loading="lazy"
+            src={pineWreath}
+            className={css.wreathImg}
+          />
         </div>
       </div>
     </div>
