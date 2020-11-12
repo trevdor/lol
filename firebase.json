@@ -24,7 +24,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'"
+            "value": "script-src 'self' 'sha256-d1VUQSjLkhQs1iZeie89QBPS/jR/IvDfPEXuW5HHs2Y=' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'"
           }
         ]
       },
