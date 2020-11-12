@@ -35,7 +35,7 @@ function timeBtwn(now, targetDateString) {
     tU += `${hours}h `;
   }
 
-  tU += `${minutes}m`;
+  tU += `${(minutes + 1) % 60}m`;
 
   return tU;
 }
