@@ -13,7 +13,7 @@
     "headers": [
       {
         // all our static stuff includes a file hash
-        "source": "**/static/*",
+        "source": "**/static/**/*",
         "headers": [
           {
             "key": "Cache-Control",
