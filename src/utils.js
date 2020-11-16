@@ -1,24 +1,5 @@
-// import { db, auth, mode } from "./db.real.js";
-import { db, auth, mode } from "./db.fake.js";
-
-// data model is:
-//
-//   users = [{
-//     ...auth,
-//     posts,
-//     progress,
-//     expectedProgress,
-//     goal
-//   }]
-//
-//   post = [{
-//     createdAt, // milliseconds
-//     date, // "yyyy-MM-DD"
-//     minutes, // int
-//     uid,
-//     message
-//   }]
-//
+import { db, auth, mode } from "./db.real.js";
+// import { db, auth, mode } from "./db.fake.js";
 
 export { auth, db, mode };
 
@@ -58,7 +39,7 @@ export const subscribeToPenguins = limitCalls(function subscribeToPenguins(
 export const subscribeToFeatures = limitCalls(function subscribeToFeatures(
   callback
 ) {
-  let collection = db.collection("features").orderBy("title");
+  let collection = db.collection("features").orderBy("name");
 
   return collection.onSnapshot((snapshot) =>
     callback(getDocsFromSnapshot(snapshot))
@@ -73,10 +54,10 @@ export const fetchVotes = limitCalls(function fetchVotes() {
     .then(getDocsFromSnapshot);
 });
 
-// export async function vote(vote) {
+// export async function like(like) {
 //   return db
-//     .collection("votes")
-//     .add({ createdAt: Date.now(), ...vote })
+//     .collection("likes")
+//     .add({ createdAt: Date.now(), ...like })
 //     .then(ref => ref.get())
 //     .then(doc => ({ ...doc.data(), id: doc.id }));
 // }
@@ -116,7 +97,7 @@ export function sortByCreatedAtDescending(a, b) {
   return b.createdAt - a.createdAt;
 }
 
-export async function vote(featureRef, uid) {
+export async function like(featureRef, uid) {
   featureRef.transaction(function (feature) {
     if (feature) {
       if (feature.stars && feature.stars[uid]) {

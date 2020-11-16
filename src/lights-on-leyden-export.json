@@ -1,0 +1,44 @@
+{
+  "features" : {
+    "dwarf-spruce-tree" : {
+      "description" : "We planted this tree in 1994. It held only 150 lights because it was so small. As it grew, the number of lights increased and eventually we added the star on top. Since 2016 the tree has been adorned with 900 RGB pixel globes.",
+      "name" : "Dwarf Spruce Tree",
+      "pictures" : {
+        "url" : "example.com/baz.jpg"
+      }
+    },
+    "magic-tree" : {
+      "description" : "The original magic tree was a beautiful Colorado blue spruce that we planted in 1993. In 2006 we started the animated magic show on the tree, decorating it with red and blue bulbs and white rope lights. It grew every year until it supported over 90,000 lights. Unfortunately the tree died in 2017 and we replaced the tree with what you see today. It supports 138,519 LED lights with the new colorful light rings and curls.",
+      "name" : "Magic Tree",
+      "pictures" : {
+        "url" : "adasd"
+      }
+    },
+    "penguins" : {
+      "description" : "The skating penguins and ice patch were built in 1999. The penguin sound came from a stuffed animal.",
+      "name" : "Penguins",
+      "pictures" : {
+        "url" : "example.com/foo.jpg"
+      }
+    },
+    "santa" : {
+      "description" : "Never makes it up that ladder.",
+      "name" : "Clause. Santa Clause.",
+      "pictures" : {
+        "url" : "example.com/bar.jpg"
+      }
+    },
+    "up-on-the-housetop" : {
+      "description" : "Don’t forget to look up to see Santa’s sleigh and reindeer!<br />The reindeer was one of the first items built for the display.  It first hung off the deck of our apartment before we moved to house on Leyden Street.   My brother helped me cut out the shapes.  The reindeer rack was first displayed in the yard and later moved to the roof.  In 2010 we debuted new 3-dimensional reindeer and sled.  In 2017 we created new reindeer that are made from a special Paper Mache recipe and colored to be more life-like.",
+      "name" : "Reindeer",
+      "pictures" : {
+        "url" : "example.com/santa.jpg"
+      }
+    },
+    "wreath" : {
+      "description" : "Are you counting the days to Christmas?<br>The wreath was one of the first items in the display.  It was purchased from Hobby Lobby. It was later rebuilt with a Christmas Countdown Clock. It was rebuilt again with a different countdown clock. And finally, the newest one has the latest electronics in it that gives the beautiful images.",
+      "name" : "Wreath",
+      "pictures" : [ null, "example.com/foo.jpg" ]
+    }
+  }
+}
