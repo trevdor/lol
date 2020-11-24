@@ -44,13 +44,8 @@ function FeatureList() {
   //   ]}
 
   return (
-    <Flex
-      alignItems="center"
-      direction="column"
-      justifyContent="center"
-      pt="10"
-    >
-      <Flex justifyContent="center" mx="auto" my={0}>
+    <Flex align="center" direction="column" justify="center" mt={4}>
+      <Flex justify="center" mx="auto" my={0} mb={4}>
         <img
           alt="Lights on Leyden"
           className={css.timTitleImg3}
@@ -58,6 +53,7 @@ function FeatureList() {
           src={timTitleImg3}
         />
       </Flex>
+      <Heading>Features</Heading>
       <Stack spacing={8} w="100%">
         {features &&
           features.map((f) => {
@@ -128,11 +124,11 @@ function Card({ desc, pic, title }) {
         borderRadius={[0, 8]}
         boxShadow="lg"
         my={5}
-        py={4}
-        w={["100%", "50%"]}
-        maxW={["100%", "50%"]}
+        pb={4}
+        w={["100%", theme.sizes.container]}
+        maxW={["100%", 850]}
       >
-        <Flex justify="space-between" mb={4} px={4}>
+        <Flex justify="space-between" my={4} px={4}>
           <Heading
             color={useColorModeValue(colors.blue[800], colors.white)}
             fontSize="3xl"
