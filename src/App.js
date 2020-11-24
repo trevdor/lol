@@ -7,10 +7,11 @@ import LoggedOut from "./LoggedOut";
 import FeatureList from "./FeatureList";
 
 import "./App.css";
+import theme from "./theme";
 
 const App = () => (
   <AppStateProvider reducer={appReducer} initialState={initialState}>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Router>
         <Route path="/features">
           <FeatureList />

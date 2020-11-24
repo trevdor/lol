@@ -62,10 +62,10 @@ export const fetchVotes = limitCalls(function fetchVotes() {
 //     .then(doc => ({ ...doc.data(), id: doc.id }));
 // }
 
-export const getFeatures = limitCalls(function getFeatures(uid) {
+export const getFeatures = limitCalls(function getFeatures() {
   return db
     .collection("features")
-    .orderBy("title")
+    .orderBy("name")
     .get()
     .then(getDocsFromSnapshot);
 });

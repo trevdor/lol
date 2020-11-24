@@ -1,13 +1,10 @@
-export default {
-  colors: {
-    transparent: "transparent",
-    black: "#000",
-    white: "#fff",
-    gray: {
-      50: "#f7fafc",
-      // ...
-      900: "#1a202c",
-    },
-    // ...
+import { extendTheme } from "@chakra-ui/react";
+
+const theme = extendTheme({
+  config: {
+    useSystemColorMode: true,
+    initialColorMode: "dark",
   },
-};
+});
+
+export default theme;

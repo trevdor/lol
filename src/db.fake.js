@@ -361,29 +361,29 @@ async function populateLocalForage(user) {
     penguins: {
       description:
         "The best dressed animals on the pond! Watch our arctic pals by the front fence as they pirouette in their tuxedos.",
-      title: "Ice Skating Penguins",
+      name: "Ice Skating Penguins",
       votes: 3,
     },
     "polar bears": {
       description: "Teaching the world to sing since 1922.",
-      title: "Coca-Cola-drinking Polar Bears",
+      name: "Coca-Cola-drinking Polar Bears",
       votes: 1,
     },
     santa: {
       description:
         "He sees you when you're sleeping. You only see him a few days before Christmas, naturally, because he's got a lot of work to do at the North Pole.",
-      title: "Santa",
+      name: "Santa",
       votes: 2,
     },
     train: {
       description: "Choo choo! Hand cars and teddy bears coming through!",
-      title: "The Christmas Train",
+      name: "The Christmas Train",
       votes: 5,
     },
     "tree elf": {
       description:
         "You might have an elf on your shelf. Ours might have caught you by surprise the first time you noticed him watching from the tree over the sidewalk.",
-      title: "The Tree Elf",
+      name: "The Tree Elf",
       votes: 4,
     },
   };
