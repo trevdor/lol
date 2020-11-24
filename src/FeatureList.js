@@ -122,8 +122,8 @@ function Card({ desc, pic, title }) {
         borderTopColor={useColorModeValue(colors.blue[400], colors.blue[400])}
         borderBottomWidth={8}
         borderBottomColor={useColorModeValue(
-          colors.blue[600],
-          colors.blue[600]
+          colors.blue[700],
+          colors.blue[700]
         )}
         borderRadius={[0, 8]}
         boxShadow="lg"
@@ -151,9 +151,7 @@ function Card({ desc, pic, title }) {
           </Button>
         </Flex>
         {pic && <FeaturedPhoto pic={pic} />}
-        <Text mt={4} px={4}>
-          {desc}
-        </Text>
+        <Text mt={4} px={4} dangerouslySetInnerHTML={{ __html: desc }}></Text>
       </Flex>
     </Center>
   );
