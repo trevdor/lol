@@ -38,16 +38,11 @@ function timeBtwn(now, targetDateString) {
 }
 
 function LoggedOut() {
-  const areLightsOn = isBefore(new Date("12/01/2020"), new Date());
+  const areLightsOn = isBefore(new Date("12/01/2021"), new Date());
 
   return (
     <div className={css.siteWrapper}>
-      <img
-        alt="Lights on Leyden"
-        className={css.timTitleImg3}
-        loading="lazy"
-        src={timTitleImg3}
-      />
+      <img alt="Lights on Leyden" className={css.timTitleImg3} loading="lazy" src={timTitleImg3} />
       {areLightsOn ? <FeatureList /> : <CountdownToLightsOn />}
     </div>
   );
@@ -81,16 +76,11 @@ function CountdownToLightsOn() {
       <div className={css.wreathText}>
         <div className={css.timeUntil}>
           Lights turn on in <br />
-          {timeBtwn(now, "12/01/2020")}
+          {timeBtwn(now, "12/01/2021")}
         </div>
       </div>
       <div className={css.wreath}>
-        <img
-          alt="pine wreath"
-          loading="lazy"
-          src={pineWreath}
-          className={css.wreathImg}
-        />
+        <img alt="pine wreath" loading="lazy" src={pineWreath} className={css.wreathImg} />
       </div>
     </div>
   );
